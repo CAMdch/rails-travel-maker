@@ -1,0 +1,110 @@
+.home-banner {
+  background-image: url('https://images.unsplash.com/photo-1604213410393-89f141bb96b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+  background-size: cover;
+  height: 100vh;
+  color: #eee;
+  padding-top: 26vh;
+  width: 100%;
+  h1 {
+    color: $orange;
+    text-align: start;
+    width: 80%;
+    margin: 0 auto;
+  }
+  span {
+    color: white;
+  }
+
+  .discover {
+    width: 80%;
+    margin: 21px auto;
+  }
+}
+
+.btn-banner {
+  background-color: $orange;
+  color: white;
+  border-radius: 7px;
+  text-decoration: none;
+  font-size: 200%;
+  padding: 8px 47px;
+  transition: 1s;
+  &:hover {
+    transition: 1s;
+    background-color: transparent;
+    border: 1px solid $orange;
+    color: $orange;
+    font-weight: bold;
+  }
+}
+
+.marker-img {
+  color: $orange;
+  font-size: 300%;
+  display: flex;
+  justify-content: end;
+  i {
+    transform: rotate(328deg);
+    position: absolute;
+    margin-right: 63px;
+  }
+  img {
+    position: relative;
+  }
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .marker-img {
+    font-size: 1500%;
+    margin-right: -43px;
+    margin-top: 32px;
+    img {
+      top: 28px;
+      right: 82px;
+      width: 35%;
+    }
+  }
+
+  .home-banner h1 {
+    font-size: 300%;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .marker-img {
+    font-size: 2500%;
+    margin-right: 20px;
+    margin-top: -93px;
+    img {
+    top: 28px;
+    right: 99px;
+    width: 35%;
+    }
+  }
+
+  .home-banner h1 {
+    font-size: 407%;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .marker-img {
+    font-size: 2500%;
+    margin-right: 20px;
+    margin-top: -93px;
+    img {
+    top: 28px;
+    right: 96px;
+    width: 23%;
+    }
+  }
+
+  .home-banner h1 {
+    font-size: 407%;
+  }
+}

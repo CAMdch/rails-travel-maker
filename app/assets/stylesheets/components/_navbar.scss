@@ -1,6 +1,14 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: transparent;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +17,24 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon-white {
+  background-color: white;
+}
+
+.nav-link {
+  background-color: $orange;
+  color: white !important;
+  font-family: $body-font;
+  border-radius: 7px;
+  margin-right: 15px;
+  transition: 1s;
+  &:hover {
+    border: 1px solid $orange;
+    background-color: transparent;
+    color: $orange !important;
+    font-weight: bold;
+    transition: 1s;
+  }
 }
