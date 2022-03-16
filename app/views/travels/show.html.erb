@@ -1,2 +1,32 @@
-<div class="container containerPerso">
+<div class="container show-travel">
+  <h1>Your trip to :<%= @travel.location%></h1>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-3 col-lg-3" data-controller="form-hotel">
+      <div class="create">
+          <p data-action = "click->form-hotel#display" data-form-hotel-target="btn">+ Add a hotel</p>
+      </div>
+      <div class="form-hotel d-none" data-form-hotel-target="form">
+        <%= simple_form_for [@travel, @hotel] do |f|%>
+          <%= f.input :address%>
+          <%= f.input :name%>
+          <%= f.input :price_per_night%>
+          <%= f.input :date_arrival, as: :string, required: false, input_html: { id: "range_start" } %>
+          <%= f.input :date_departure, as: :string, required: false, input_html: {id: "range_end"} %>
+          <%= f.submit%>
+        <%end%>
+      </div>
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <div style="width: 100%; height: 600px;"
+          data-controller="mapbox"
+          data-mapbox-markers-value="<%= @marker.to_json %>"
+          data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+
+    <div class="col-sm-12 col-md-3 col-lg-3"></div>
+
+  </div>
+
 </div>

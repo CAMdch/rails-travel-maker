@@ -11,6 +11,13 @@ class TravelsController < ApplicationController
     redirect_to travel_path(@travel.id)
   end
 
+  def show
+    @travel = Travel.find(params[:id])
+    @booking = Booking.find_by('travel_id = ?', params[:id])
+    @marker = [{ lat: @travel.latitude, lng: @travel.longitude }]
+    @hotel = Hotel.new
+  end
+
   private
 
   def travel_params

@@ -22,6 +22,10 @@
   }
 }
 
+.display-none {
+  --bs-gutter-x: 0;
+}
+
 .mapboxgl-ctrl-geocoder {
   max-width: none !important;
   width: 100% !important;;
