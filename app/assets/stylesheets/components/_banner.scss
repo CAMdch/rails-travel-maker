@@ -26,7 +26,6 @@
   color: white;
   border-radius: 7px;
   text-decoration: none;
-  font-size: 200%;
   padding: 8px 47px;
   transition: 1s;
   &:hover {
@@ -40,7 +39,6 @@
 
 .marker-img {
   color: $orange;
-  font-size: 300%;
   display: flex;
   justify-content: end;
   i {
@@ -58,8 +56,8 @@
 /*Smallest device*/
 @media (min-width: 100px) and (max-width: 575px) {
   .marker-img {
-    font-size: 1500%;
-    margin-right: -43px;
+    font-size: 1326%;
+    margin-right: 0;
     margin-top: 32px;
     img {
       top: 28px;
@@ -68,22 +66,30 @@
     }
   }
 
+  .btn-banner {
+    font-size: 155%;
+  }
+
   .home-banner h1 {
-    font-size: 300%;
+    font-size: 260%;
   }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
   .marker-img {
-    font-size: 2500%;
+    font-size: 2418%;
     margin-right: 20px;
-    margin-top: -93px;
+    margin-top: -21px;
     img {
     top: 28px;
     right: 99px;
     width: 35%;
     }
+  }
+
+  .btn-banner {
+    font-size: 200%;
   }
 
   .home-banner h1 {
@@ -102,6 +108,10 @@
     right: 96px;
     width: 23%;
     }
+  }
+
+  .btn-banner {
+    font-size: 200%;
   }
 
   .home-banner h1 {

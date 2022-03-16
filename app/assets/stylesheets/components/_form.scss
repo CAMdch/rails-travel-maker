@@ -1,0 +1,48 @@
+.from-travel {
+  width: 40%;
+  text-align: center;
+  margin: 150px auto;
+  border: 1px solid $orange;
+  border-radius: 7px;
+  padding: 50px 25px;
+  input {
+    border: 1px solid $orange;
+    border-radius: 7px;
+    color: $orange;
+    font-weight: bolder;
+    transition: 1s;
+    &:hover {
+      transition: 1s;
+      background-color: $orange;
+      color: white;
+    }
+  }
+}
+
+.from-image-travel {
+  background-image: url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80');
+  background-size: cover;
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .from-image-travel {
+    height: 45vh;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .from-image-travel {
+    height: 45vh;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .from-image-travel {
+    height: 100vh;
+  }
+}

@@ -1,1 +1,65 @@
-// Specific CSS for your home-page
+.step {
+  h2 {
+    color: $orange;
+    text-align: center;
+  }
+
+  img {
+    width: 90%;
+    margin: 15px;
+  }
+
+  .example {
+    display: flex;
+    align-items: center;
+  }
+
+}
+
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .step {
+    h2 {
+      padding-top: 25px;
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 16px;
+      text-align: justify;
+    }
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .step {
+    h2 {
+      padding-top: 25px;
+      font-size: 60px;
+    }
+
+    p {
+      font-size: 19px;
+      text-align: justify;
+    }
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .step {
+    h2 {
+      padding-top: 25px;
+      font-size: 65px;
+    }
+
+    p {
+      font-size: 27px;
+      text-align: justify;
+    }
+  }
+}
