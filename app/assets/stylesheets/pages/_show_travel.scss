@@ -6,3 +6,72 @@
     border-bottom: 1px solid $orange;
   }
 }
+
+.create {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    border: 0.1px solid black;
+    border-radius: 7px;
+    padding: 5px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
+.sum-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recap-price {
+  h3 {
+    font-family: $body-font;
+    font-weight: bold;
+    border-bottom: 0.2px solid black;
+    margin-bottom: 15px;
+  }
+
+  .total-price {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  border-top: 0.2px solid black;
+  padding-top: 15px;
+  font-weight: bold;
+  p{
+    margin: 0;
+  }
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .create {
+    height: 60vh;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+    .create {
+    height: 33vh;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .create {
+    height: 70vh;
+  }
+}
