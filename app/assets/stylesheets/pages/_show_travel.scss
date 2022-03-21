@@ -94,10 +94,14 @@
 }
 
 
+.hotel-title {
+  color: $orange;
+  border-top: 1px solid $orange;
+  margin-top: 25px;
+}
+
+
 .hotels {
-  h3 {
-    color: $orange;
-    border-top: 1px solid $orange;
-    margin-top: 25px;
-  }
+  display: flex;
+  justify-content: center;
 }

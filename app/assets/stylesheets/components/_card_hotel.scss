@@ -2,11 +2,69 @@
   border: 1px solid $grey;
   border-radius: 7px;
   padding: 15px;
+  margin: 20px;
   .hotel-name {
     text-align: center;
+    font-size: 25px;
+    color: $orange;
+    font-weight: bold;
+    margin: 0;
   }
   .nb-night, .from, .to {
     display: flex;
     justify-content: space-between;
   }
+
+  .modification {
+    text-align: end;
+    i {
+      color: $orange;
+      padding-left: 7px;
+      margin-top: 15px;
+      opacity: 0.5;
+      transition: 1s;
+      cursor: pointer;
+      &:hover {
+        transition: 1s;
+        opacity: 1;
+      }
+    }
+  }
+
+  .place {
+    text-align: center;
+    font-style: italic;
+  }
+
+}
+
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .card-hotel {
+    width: 90%;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .card-hotel {
+    width: 42%;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .card-hotel {
+    width: 29%;
+  }
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -80px;
+  visibility: hidden;
 }

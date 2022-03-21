@@ -16,7 +16,8 @@ class TravelsController < ApplicationController
     @booking = Booking.find_by('travel_id = ?', params[:id])
     @hotel = Hotel.new
     @hotels = Hotel.where('travel_id = ?', params[:id])
-
+    @activity = Activity.new
+    @activities = Activity.where('travel_id = ?', params[:id])
     @markershotel = @hotels.geocoded.map do |hotel|
       {
         lat: hotel.latitude,
@@ -26,6 +27,7 @@ class TravelsController < ApplicationController
     end
 
     @price_night = price_night_hotel
+    @price_activity = price_activity
   end
 
   private
@@ -38,6 +40,16 @@ class TravelsController < ApplicationController
       price_total += hotel.price_per_night * (hotel.date_departure - hotel.date_arrival).to_i
     end
     return { nb_night: nb_night, price_total: price_total }
+  end
+
+  def price_activity
+    nb_activity = 0
+    price_total = 0
+    @activities.each do |activity|
+      nb_activity += 1
+      price_total += activity.price
+    end
+    return { nb_activity: nb_activity, price_total: price_total }
   end
 
   def travel_params
