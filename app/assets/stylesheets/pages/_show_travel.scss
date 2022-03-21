@@ -22,6 +22,23 @@
   }
 }
 
+.form-hotel {
+  .input {
+    border: 1px solid $orange;
+    margin-bottom: -6px;
+    height: 36px;
+    background-color: white;
+  }
+
+  .btn-form {
+    width: 100%;
+    background-color: $orange;
+    text-align: center;
+    color: white;
+    border-radius: 7px;
+  }
+}
+
 .sum-up {
   display: flex;
   flex-direction: column;
@@ -58,20 +75,29 @@
 /*Smallest device*/
 @media (min-width: 100px) and (max-width: 575px) {
   .create {
-    height: 60vh;
+    height: 75vh;
   }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
     .create {
-    height: 33vh;
+    height: 43vh;
   }
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 1200px) {
   .create {
-    height: 70vh;
+    height: 75vh;
+  }
+}
+
+
+.hotels {
+  h3 {
+    color: $orange;
+    border-top: 1px solid $orange;
+    margin-top: 25px;
   }
 }

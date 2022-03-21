@@ -10,11 +10,11 @@
             <%= f.input :address,
                 input_html: { data: { geocoder_hotel_target: "address" }, class: "d-none" },
                 wrapper_html: { data: { controller: "geocoder-hotel", geocoder_hotel_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-            <%= f.input :name%>
-            <%= f.input :price_per_night%>
-            <%= f.input :date_arrival, as: :string, required: false, input_html: { id: "range_start" } %>
-            <%= f.input :date_departure, as: :string, required: false, input_html: {id: "range_end"} %>
-            <%= f.submit%>
+            <%= f.input :name, input_html: { class:"input" }%>
+            <%= f.input :price_per_night, input_html: { class:"input" }%>
+            <%= f.input :date_arrival, as: :string, required: false, input_html: { id: "range_start", class:"input" } %>
+            <%= f.input :date_departure, as: :string, required: false, input_html: {id: "range_end", class:"input"} %>
+            <%= f.button :submit, class:"btn-form"%>
           <%end%>
         </div>
       </div>
@@ -43,6 +43,30 @@
 
     </div>
 
+  </div>
+
+  <div class="row hotels">
+    <h3>Hotels <i class="fa-solid fa-bed"></i></h3>
+      <%@hotels.each do |hotel|%>
+        <div class="card-hotel col-sm-12 col-md-6 col-lg-4">
+          <p class="hotel-name"><%=hotel.name%></p>
+
+          <div class="nb-night">
+            <p><%= (hotel.date_departure - hotel.date_arrival).to_i%><span> nights</span></p>
+            <p>$ <%= (hotel.date_departure - hotel.date_arrival).to_i * hotel.price_per_night%></p>
+          </div>
+
+          <div class="from">
+            <p>FROM</p>
+            <p><%= hotel.date_arrival.strftime('%a,%d %b')%></p>
+          </div>
+
+          <div class="to">
+            <p>TO</p>
+            <p><%= hotel.date_departure.strftime('%a,%d %b')%></p>
+          </div>
+        </div>
+      <%end%>
   </div>
 
 </div>
