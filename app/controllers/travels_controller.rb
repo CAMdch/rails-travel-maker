@@ -95,7 +95,7 @@ class TravelsController < ApplicationController
 
   def set_hotel
     @hotel = Hotel.new
-    @hotels = Hotel.where('travel_id = ?', params[:id])
+    @hotels = Hotel.where('travel_id = ?', params[:id]).order('date_arrival ASC')
   end
 
   def set_activity
