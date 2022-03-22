@@ -1,0 +1,46 @@
+<div class="row hotels">
+      <%transports.each do |transport|%>
+        <div class="card-hotel col-sm-12 col-md-6 col-lg-4">
+          <a href="#" id="transport-<%= transport.id %>" class="anchor"></a>
+          <p class="hotel-name"><%=transport.means_of%></p>
+          <div class="nb-night">
+            <p><%=transport.price%><span> $</span></p>
+            <p><%=transport.duration%><span>h</span> </p>
+          </div>
+
+          <div class="from">
+            <p>FROM</p>
+            <p><%=transport.address_departure%></p>
+          </div>
+
+          <div class="to">
+            <p>TO</p>
+            <p><%=transport.address_arrival%></p>
+          </div>
+
+          <div class="modification">
+            <i class="fas fa-pen" data-action = "click->form-hotel#display_transport_edit" data-choice = "edit_transport_<%=transport.id%>"></i>
+            <%= link_to transport_path(transport.id), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <%end%>
+          </div>
+
+          <div class="form-hotel">
+            <%= simple_form_for transport,  html: { class: "d-none",
+                                                data: { form_hotel_target: "form_transport_edit"} } do |f|%>
+              <%= f.input :address_departure,
+                input_html: { data: { geocoder_transport_target: "address_departure" }, class: "d-none" },
+                wrapper_html: { data: { controller: "geocoder-transport", geocoder_transport_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+              <%= f.input :address_arrival,
+                  input_html: { data: { geocoder_transport_arrival_target: "address_arrival" }, class: "d-none" },
+                  wrapper_html: { data: { controller: "geocoder-transport-arrival", geocoder_transport_arrival_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+              <%= f.input :means_of, input_html: { class:"input" }%>
+              <%= f.input :price, input_html: { class:"input" }%>
+              <%= f.input :duration, input_html: { class:"input" }%>
+              <%= f.button :submit, class:"btn-form"%>
+              <%= f.button :submit, class:"btn-form"%>
+            <%end%>
+          </div>
+        </div>
+      <%end%>
+  </div>

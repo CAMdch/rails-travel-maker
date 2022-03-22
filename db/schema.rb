@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_21_165808) do
+ActiveRecord::Schema.define(version: 2022_03_22_080531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2022_03_21_165808) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "date"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["travel_id"], name: "index_activities_on_travel_id"
   end
 
@@ -88,7 +90,7 @@ ActiveRecord::Schema.define(version: 2022_03_21_165808) do
   end
 
   create_table "transports", force: :cascade do |t|
-    t.string "type"
+    t.string "means_of"
     t.string "address_departure"
     t.string "address_arrival"
     t.integer "duration"
@@ -97,6 +99,10 @@ ActiveRecord::Schema.define(version: 2022_03_21_165808) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.date "date"
+    t.float "latitude_depart"
+    t.float "longitude_depart"
+    t.float "latitude_arrival"
+    t.float "longitude_arrival"
     t.index ["travel_id"], name: "index_transports_on_travel_id"
   end
 

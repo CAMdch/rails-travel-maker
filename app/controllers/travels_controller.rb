@@ -14,20 +14,17 @@ class TravelsController < ApplicationController
   def show
     @travel = Travel.find(params[:id])
     @booking = Booking.find_by('travel_id = ?', params[:id])
-    @hotel = Hotel.new
-    @hotels = Hotel.where('travel_id = ?', params[:id])
-    @activity = Activity.new
-    @activities = Activity.where('travel_id = ?', params[:id])
-    @markershotel = @hotels.geocoded.map do |hotel|
-      {
-        lat: hotel.latitude,
-        lng: hotel.longitude,
-        image_url: helpers.asset_url("icon-hotel.jpg")
-      }
-    end
+    set_hotel
+    set_activity
+    set_transport
+
+    marker_hotel
+    marker_activity
+    marker_transport
 
     @price_night = price_night_hotel
     @price_activity = price_activity
+    @price_transport = price_transport
   end
 
   private
@@ -52,7 +49,62 @@ class TravelsController < ApplicationController
     return { nb_activity: nb_activity, price_total: price_total }
   end
 
+  def price_transport
+    nb_transport = 0
+    price_total = 0
+    @transports.each do |transport|
+      nb_transport += 1
+      price_total += transport.price
+    end
+    return { nb_transport: nb_transport, price_total: price_total }
+  end
+
   def travel_params
     params.require(:travel).permit(:location)
+  end
+
+  def marker_hotel
+    @markershotel = @hotels.geocoded.map do |hotel|
+      {
+        lat: hotel.latitude,
+        lng: hotel.longitude,
+        image_url: helpers.asset_url("icon-hotel.jpg")
+      }
+    end
+  end
+
+  def marker_activity
+    @markersactivity = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        image_url: helpers.asset_url("pointer_activity.png")
+      }
+    end
+  end
+
+  def marker_transport
+    @markerstransport = @transports.geocoded.map do |transport|
+      {
+        lat: transport.latitude_arrival,
+        lng: transport.longitude_arrival,
+        image_url: helpers.asset_url("airport_marker.webp")
+      }
+    end
+  end
+
+  def set_hotel
+    @hotel = Hotel.new
+    @hotels = Hotel.where('travel_id = ?', params[:id])
+  end
+
+  def set_activity
+    @activity = Activity.new
+    @activities = Activity.where('travel_id = ?', params[:id])
+  end
+
+  def set_transport
+    @transport = Transport.new
+    @transports = Transport.where('travel_id = ?', params[:id])
   end
 end

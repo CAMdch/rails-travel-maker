@@ -4,12 +4,18 @@ class ActivitiesController < ApplicationController
     @travel = Travel.find(params[:travel_id])
     @activity.travel = @travel
     @activity.save
-    redirect_to travel_path(params[:travel_id])
+    redirect_to travel_path(params[:travel_id]) + "#activity-#{@activity.id}"
   end
 
   def update
     @activity = Activity.find(params[:id])
     @activity.update(params_activity)
+    redirect_to travel_path(@activity.travel_id) + "#activity-#{@activity.id}"
+  end
+
+  def destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
     redirect_to travel_path(@activity.travel_id)
   end
 

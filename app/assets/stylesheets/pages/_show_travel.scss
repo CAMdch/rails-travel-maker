@@ -6,6 +6,18 @@
     border-bottom: 1px solid $orange;
   }
 }
+.align-cross {
+  position: absolute;
+}
+
+#cross {
+  border: none;
+  margin-bottom: 0;
+  position: relative;
+  top: 23px;
+  right: -117px;
+  padding: 0;
+}
 
 .create {
   display: flex;
@@ -74,21 +86,29 @@
 
 /*Smallest device*/
 @media (min-width: 100px) and (max-width: 575px) {
-  .create {
+  .create, .sum-up {
     height: 75vh;
+  }
+
+  .sum-up {
+    margin-top: 15px;
   }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-    .create {
-    height: 43vh;
+    .create, .sum-up {
+    height: 50vh;
+  }
+
+  .sum-up {
+    margin-top: 15px;
   }
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 1200px) {
-  .create {
+  .create, .sum-up {
     height: 75vh;
   }
 }

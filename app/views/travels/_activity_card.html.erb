@@ -1,0 +1,33 @@
+<div class="row hotels">
+      <%activities.each do |activity|%>
+        <div class="card-hotel col-sm-12 col-md-6 col-lg-4">
+          <a href="#" id="activity-<%= activity.id %>" class="anchor"></a>
+          <p class="hotel-name"><%=activity.name%></p>
+          <p class="place"><%=activity.address%></p>
+          <div class="nb-night">
+            <p><%=activity.price%><span> $</span></p>
+            <p><%=activity.duration%><span>min</span> </p>
+          </div>
+
+          <div class="modification">
+            <i class="fas fa-pen" data-action = "click->form-hotel#display_activity_edit" data-choice = "edit_activity_<%=activity.id%>"></i>
+            <%= link_to activity_path(activity.id), method: :delete do %>
+              <i class="fas fa-trash-alt"></i>
+            <%end%>
+          </div>
+
+          <div class="form-hotel">
+            <%= simple_form_for activity,  html: { class: "d-none",
+                                                data: { form_hotel_target: "form_activity_edit"} } do |f|%>
+              <%= f.input :address,
+                input_html: { data: { geocoder_hotel_target: "address" }, class: "d-none" },
+                wrapper_html: { data: { controller: "geocoder-hotel", geocoder_hotel_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+              <%= f.input :name, input_html: { class:"input" }%>
+              <%= f.input :price, input_html: { class:"input" }%>
+              <%= f.input :duration, input_html: { class:"input" }%>
+              <%= f.button :submit, class:"btn-form"%>
+            <%end%>
+          </div>
+        </div>
+      <%end%>
+  </div>
