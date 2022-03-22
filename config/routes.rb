@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get "/profiles", to: "profiles#dashboard", as: :profile
+
   resources :travels do
-    resources :hotels, only: [:new, :create]
-    resources :activities, only: [:new, :create]
-    resources :transports, only: [:new, :create]
+    resources :hotels, only: %i[new create]
+    resources :activities, only: %i[new create]
+    resources :transports, only: %i[new create]
   end
 
-  resources :hotels, only: [:destroy, :update]
-
-  resources :activities, only: [:destroy, :update]
-
-  resources :transports, only: [:destroy, :update]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :hotels, only: %i[destroy update]
+  resources :activities, only: %i[destroy update]
+  resources :transports, only: %i[destroy update]
 end
