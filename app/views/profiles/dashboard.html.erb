@@ -18,7 +18,7 @@
             <%= image_tag("background_#{rand(10)}.avif")%>
             <p class="title"><%= booking.travel.location%></p>
             <div class="info">
-              <p class="price"><span>$</span> 30/day</p>
+              <p class="price"><span>$</span> <%=booking.travel.total_price.fdiv(booking.travel.nb_day).round %>/day</p>
               <%= link_to "See", travel_path(booking.travel), class:"see"%>
             </div>
           </div>
