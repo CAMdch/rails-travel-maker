@@ -1,0 +1,86 @@
+.card-booking {
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.1);
+  text-align: center;
+  img {
+    width: 90%;
+    margin-top: 8px;
+    border-radius: 7px;
+    object-fit: cover;
+  }
+  .title{
+    text-align: start;
+    margin-left: 19px;
+    margin-top: 8px;
+    margin-right: 19px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 19px;
+    margin-top: 8px;
+    margin-right: 19px;
+    margin-bottom: 20px;
+    width: 86%;
+    span {
+      color: $orange;
+    }
+    .see {
+      color: $orange;
+      border: 1px solid $orange;
+      border-radius: 7px;
+      padding: 2px 8px;
+      transition: 1s;
+      text-decoration: none;
+      height: 100%;
+      &:hover {
+        transition: 1s;
+        background-color: $orange;
+        color: white;
+      }
+    }
+  }
+}
+
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .card-booking {
+    img {
+      height: 30vh;
+    }
+    .title {
+      height: 11vh;
+    }
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .card-booking {
+    img {
+      height: 20vh;
+    }
+    .title {
+      height: 7vh;
+    }
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .card-booking {
+    img {
+      height: 30vh;
+    }
+    .title {
+      height: 11vh;
+    }
+  }
+}

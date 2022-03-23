@@ -1,2 +1,29 @@
-<div class="container containerPerso">
+<div class="profile">
+  <h1 class="username">Hello, <%= current_user.username%></h1>
+  <% if current_user.photo.key?  %>
+    <%= cl_image_tag current_user.photo.key, class:"profile-avatar", 'aria-haspopup': true, 'aria-expanded': false, data: { bs_toggle: "dropdown" }%>
+  <% else %>
+    <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.vAJEPP27RrrXc8H9WguukgHaHa&pid=Api&P=0&w=178&h=178", class: "avatar avatar-box dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+  <% end %>
+
+  <div class="container containerPerso">
+    <div class="row">
+      <div class="proposition">
+        <h3>Your future trips</h3>
+
+      </div>
+      <%@bookings.each do |booking|%>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card-booking">
+            <%= image_tag("background_#{rand(10)}.avif")%>
+            <p class="title"><%= booking.travel.location%></p>
+            <div class="info">
+              <p class="price"><span>$</span> 30/day</p>
+              <%= link_to "See", travel_path(booking.travel), class:"see"%>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
 </div>

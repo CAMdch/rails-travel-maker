@@ -7,8 +7,11 @@ class TravelsController < ApplicationController
     @travel = Travel.new(travel_params)
     @travel.save
     @booking = Booking.new(user_id: current_user.id, travel_id: @travel.id)
-    @booking.save
-    redirect_to travel_path(@travel.id)
+    if @booking.save
+      redirect_to travel_path(@travel.id)
+    else
+      render :new
+    end
   end
 
   def show
@@ -60,7 +63,7 @@ class TravelsController < ApplicationController
   end
 
   def travel_params
-    params.require(:travel).permit(:location)
+    params.require(:travel).permit(:location, :start_date, :end_date)
   end
 
   def marker_hotel

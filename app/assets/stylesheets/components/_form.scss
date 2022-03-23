@@ -1,7 +1,6 @@
 .from-travel {
-  width: 40%;
   text-align: center;
-  margin: 150px auto;
+  margin: 86px  auto;
   border: 1px solid $orange;
   border-radius: 7px;
   padding: 50px 25px;
@@ -45,6 +44,9 @@
   .from-image-travel {
     height: 45vh;
   }
+  .from-travel {
+    width: 80%;
+  }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
@@ -52,11 +54,19 @@
   .from-image-travel {
     height: 45vh;
   }
+
+  .from-travel {
+    width: 50%;
+  }
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 1200px) {
   .from-image-travel {
     height: 100vh;
+  }
+
+  .from-travel {
+    width: 40%;
   }
 }

@@ -1,0 +1,72 @@
+.profile {
+  background-image: url('https://images.unsplash.com/photo-1516540438350-9db0f4e6552f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+  background-size: cover;
+  height: 30vh;
+  padding-top: 26vh;
+  width: 100%;
+
+  .username {
+    background-color: $light-gray;
+    color: $orange;
+    width: 80%;
+    margin: -20px auto;
+    border-radius: 7px;
+    padding: 7px;
+    height: 75px;
+    position: relative;
+  }
+
+  .profile-avatar {
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+  }
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .profile-avatar {
+    height: 90px;
+    width: 90px;
+    top: 75px;
+    right: 13px;
+  }
+
+  .username {
+    font-size: 25px;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .profile-avatar {
+    height: 150px;
+    width: 150px;
+    top: 197px;
+    right: 54px;
+  }
+
+  .username {
+    font-size: 40px;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .profile-avatar {
+    height: 150px;
+    width: 150px;
+    top: 79px;
+    right: 93px;
+  }
+
+  .username {
+    font-size: 40px;
+  }
+}
+
+.proposition {
+  margin-top: 50px;
+}
