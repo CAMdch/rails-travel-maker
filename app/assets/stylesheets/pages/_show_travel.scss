@@ -125,3 +125,28 @@
   display: flex;
   justify-content: center;
 }
+
+
+.information-travel {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  border-bottom: 1px solid $orange;
+  padding-bottom: 15px;
+  p {
+    margin: 0;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.btn-travel {
+  color: black;
+  opacity: 0.3;
+  transition: 1s;
+  &:hover {
+    opacity: 1;
+    transition: 1s;
+  }
+}

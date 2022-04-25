@@ -17,6 +17,7 @@ class TravelsController < ApplicationController
   def show
     @travel = Travel.find(params[:id])
     @booking = Booking.find_by('travel_id = ?', params[:id])
+    @new_booking = Booking.new
     set_hotel
     set_activity
     set_transport

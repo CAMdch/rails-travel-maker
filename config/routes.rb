@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :hotels, only: %i[new create]
     resources :activities, only: %i[new create]
     resources :transports, only: %i[new create]
+    resources :bookings, only: %i[new create]
   end
 
   resources :hotels, only: %i[destroy update]

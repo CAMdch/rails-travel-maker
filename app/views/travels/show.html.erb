@@ -1,6 +1,20 @@
 <div class="container show-travel" data-controller="form-hotel">
   <h1>Your trip to :<%= @travel.location%></h1>
 
+  <div class="information-travel">
+
+    <%= form_with url: "/travels/#{@travel.id}/bookings/new", method: :get do |form| %>
+      <%= form.text_field :query %>
+      <%= form.submit "Add a partner" %>
+    <% end %>
+
+    <p><b>FROM</b>  <%= @travel.start_date %></p>
+    <p><b>TO</b>  <%= @travel.end_date %></p>
+
+    <p class="btn-travel"><i class="fas fa-comments"></i> Open the chatroom </p>
+
+  </div>
+
   <div class="row" data-controller ="close">
     <div class="col-sm-12 col-md-12 col-lg-3">
       <div class="create">
